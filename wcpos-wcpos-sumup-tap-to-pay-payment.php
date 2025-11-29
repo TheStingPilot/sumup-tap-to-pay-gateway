@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce POS WCPOS Sumup Tap To Pay payment Gateway
  * Plugin URI: https://github.com/TheStingPilot/sumup-tap-to-pay-gateway
  * Description: Sumup Tap To Pay payment
- * Version: 0.0.2
+ * Version: 0.0.3
  * Author: TheStingPilot (original from killbot)
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -86,7 +86,8 @@ function woocommerce_pos_wcpos_sumup_tap_to_pay_payment_gateway_init() {
 
                         // Add some meta_data to the order (TheStingPilot)
                         $order->update_meta_data( '_pos_Sumup_TTP', $orderamount );
-                                                
+                        $order->save();
+                       
                         // Complete payment (TheStingPilot)
                         $order->payment_complete();
 
